@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-14 px-4 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between"
+    class="h-14 px-4 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between max-w-[100vw] overflow-hidden"
   >
     <!-- 左侧 -->
     <div class="flex items-center gap-2">

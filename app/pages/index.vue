@@ -21,39 +21,13 @@
     <!-- 4、以上从开始到完成第一个实例，大概花了3小时————只记得我45分钟的番茄钟，用了大概4个 -->
 
     <div
-      class="bg-[url(/img/img-bg.jpg)] bg-cover bg-fixed min-h-[100vh] flex flex-col items-center"
+      class="bg-[url(/img/img-bg.jpg)] bg-cover bg-fixed min-h-[100vh] max-w-[100vw] flex flex-col items-center"
     >
-      <!-- 空白 -->
-      <div class="h-[40vh] w-full"></div>
-      <!-- 第一屏：“向下滚动” -->
-      <div class="select-none text-4xl text-white font-bold">向下滚动</div>
 
-      <!-- 空白 -->
-      <div class="h-[8vh] w-full"></div>
+      <div class="h-[42vh] w-full"></div>
 
-      <!-- 第二瓶：个人图片、文字、基本介绍、按钮 -->
-      <div
-        id="trigger-1"
-        class="flex justify-around h-[80vh] w-[80vw] relative"
-      >
-        <div
-          id="trigger-1-img"
-          class="w-[28vw] rounded-3xl overflow-hidden absolute bottom-0 opacity-0"
-        >
-          <img src="/img/img-xuhongcan.jpg" alt="个人图片" />
-        </div>
-        <div
-          id="trigger-1-text"
-          class="text-white font-bold flex flex-col w-[28vw] items-center absolute"
-        >
-          <div class="text-2xl w-full flex justify-around">
-            <div>许宏灿</div>
-            <div>18岁</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 空白 -->
+      <!-- 第二屏：个人图片、文字、基本介绍、按钮 -->
+      <HomeBasicInfomation2></HomeBasicInfomation2>
       <div class="h-[300vh] w-full"></div>
 
       <!-- <div>
@@ -71,38 +45,6 @@ definePageMeta({
   layout: false,
 });
 
-// 鼠标滚动动画
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-let ctx: gsap.Context | null = null;
 
-onMounted(() => {
-  ctx = gsap.context(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({ ease: "none", duration: 2 });
-
-    const tl = gsap.timeline();
-    tl.to("#trigger-1-img", { width: "40vw", opacity: 1 }).to(
-      "#trigger-1-img",
-      { width: "28vw", opacity: 1, y: "-8vw", x: "-12vw", delay: 1.8 }
-    );
-    tl.from("#trigger-1-text", { x: "-12vw", opacity: 0 }).to(
-      "#trigger-1-text",
-      { x: "24vw", opacity: 1 }
-    );
-    ScrollTrigger.create({
-      animation: tl,
-      trigger: "#trigger-1",
-      start: "center center",
-      end: "+=1400",
-      scrub: true,
-      pin: true,
-    });
-  });
-});
-
-onUnmounted(() => {
-  ctx?.revert();
-});
 </script>
