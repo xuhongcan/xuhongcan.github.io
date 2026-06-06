@@ -27,7 +27,7 @@
       <div class="h-[42vh] w-full"></div>
 
       <!-- 第二屏：个人图片、文字、基本介绍、按钮 -->
-      <HomeBasicInfomation2></HomeBasicInfomation2>
+      <HomeBasicInfomation></HomeBasicInfomation>
       <div class="h-[300vh] w-full"></div>
 
       <!-- <div>

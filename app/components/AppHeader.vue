@@ -1,42 +1,44 @@
 <template>
-  <div
-    class="h-14 px-4 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between max-w-[100vw] overflow-hidden"
-  >
-    <!-- 左侧 -->
-    <div class="flex items-center gap-2">
+  <UHeader>
+    <template #title>
       <NuxtLink
         to="/"
-        class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-zinc-800 transition text-white"
+        class="w-10 h-10 flex items-center justify-center rounded-lg transition text-white"
       >
         ☰
       </NuxtLink>
-    </div>
+    </template>
+    
+    许宏灿
 
-    <!-- 右侧 -->
-    <div class="flex items-center gap-3">
-      <NuxtLink
-        to="/shoot"
-        class="w-28 h-10 flex items-center justify-center rounded-lg hover:bg-zinc-800 transition text-white"
-      >
-        拍摄
-      </NuxtLink>
-
-      <NuxtLink
-        to="/actor"
-        class="w-28 h-10 flex items-center justify-center rounded-lg hover:bg-zinc-800 transition text-white"
-      >
-        演员
-      </NuxtLink>
-
-      <NuxtLink
-        to="/filmEdit"
-        class="w-28 h-10 flex items-center justify-center rounded-lg hover:bg-zinc-800 transition text-white"
-      >
-        剪辑
-      </NuxtLink>
-    </div>
-  </div>
+    <template #right>
+      <UNavigationMenu :items="items" />
+    </template>
+  </UHeader>
 </template>
 
-<script setup>
+
+
+<script setup lang="ts">
+import type { NavigationMenuItem } from "@nuxt/ui";
+
+const route = useRoute();
+
+const items = computed<NavigationMenuItem[]>(() => [
+  
+  {
+    label: "拍摄",
+    to: "/shoot",
+  },
+  {
+    label: "演员",
+    to: "/actor",
+  },{
+    label: "剪辑",
+    to: "/filmEdit",
+  },{
+    label: "开发者日志",
+    to: "/developerLog",
+  },
+]);
 </script>

@@ -1,31 +1,27 @@
 <template>
-  
-  <!-- 第二瓶：个人图片、文字、基本介绍、按钮 -->
-      <div
-        id="trigger-1"
-        class="flex justify-around h-[80vh] w-[80vw] relative"
-      >
-        <div
-          id="trigger-1-img"
-          class="w-[28vw] rounded-3xl overflow-hidden absolute bottom-0 opacity-0"
-        >
-          <img src="/img/img-xuhongcan.jpg" alt="个人图片" />
-        </div>
-        <div
-          id="trigger-1-text"
-          class="text-white font-bold flex flex-col w-[28vw] items-center absolute"
-        >
-          <div class="text-2xl w-full flex justify-around">
-            <div>许宏灿</div>
-            <div>18岁</div>
-          </div>
-        </div>
+  <!-- 第一屏：“向下滚动” -->
+  <div class="select-none text-4xl text-white font-bold">向下滚动</div>
+  <div class="h-[8vh] w-full"></div>
+  <!-- 响应式屏幕适配：默认为移动端 -->
+  <div class="flex flex-col items-center lg:flex-row lg:justify-around">
+    <div
+      id="trigger-1-img"
+      class="w-[60vw] lg:w-[28vw] rounded-3xl overflow-hidden lg:m-[80px]"
+    >
+      <img src="/img/img-xuhongcan.jpg" alt="个人图片" />
+    </div>
+    <div
+      class="text-white font-bold flex flex-col items-center w-[80vw] lg:w-[28vw] lg:m-[80px]"
+    >
+      <div class="text-2xl w-full flex justify-around">
+        <div>许宏灿</div>
+        <div>18岁</div>
       </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-
-// 鼠标滚动动画
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -37,17 +33,12 @@ onMounted(() => {
     gsap.defaults({ ease: "none", duration: 2 });
 
     const tl = gsap.timeline();
-    tl.to("#trigger-1-img", { width: "40vw", opacity: 1 }).to(
-      "#trigger-1-img",
-      { width: "28vw", opacity: 1, y: "-8vw", x: "-12vw", delay: 1.8 }
-    );
-    tl.from("#trigger-1-text", { x: "-12vw", opacity: 0 }).to(
-      "#trigger-1-text",
-      { x: "24vw", opacity: 1 }
-    );
+    tl.from("#trigger-1-img", {  opacity: 0, scale:0.5 }).to("#trigger-1-img", {  opacity: 1, scale:1.5 }).to("#trigger-1-img", {  opacity: 1, scale:1 })
+
+
     ScrollTrigger.create({
       animation: tl,
-      trigger: "#trigger-1",
+      trigger: "#trigger-1-img",
       start: "center center",
       end: "+=1400",
       scrub: true,
