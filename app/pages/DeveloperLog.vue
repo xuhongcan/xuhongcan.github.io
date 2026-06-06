@@ -25,7 +25,10 @@
           @click="open = !open"
         />
         <Placeholder class="size-full" />
-        <div>开发者日志：内容</div>
+
+        <article class="prose dark:prose-invert">
+          <div v-html="html"></div>
+        </article>
       </div>
     </div>
   </div>
@@ -36,6 +39,13 @@
 <script setup lang="ts">
 const open = ref(true);
 
-//测试markdown-it
+import MarkdownIt from "markdown-it";
+const md = new MarkdownIt();
+const markdownContent = ref(`# 这是一个标题
+这是一些文本内容。
+- 列表项1
+- 列表项2
+`);
+const html = computed(() => md.render(markdownContent.value));
 </script>
 
