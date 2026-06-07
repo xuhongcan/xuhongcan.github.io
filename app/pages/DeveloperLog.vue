@@ -10,9 +10,12 @@
         body: 'py-0',
       }"
     >
-      <div class="flex items-center justify-between h-full">
-        <div v-show="open" class="whitespace-nowrap">开发者日志：目录</div>
+    <div class="mt-25">
+      <div v-for="(item, index) in developerLogList" :key="index">
+        <UButton @click="activeIndex = index" size="xl" color="neutral" class="w-full">{{ item.name }}</UButton>
       </div>
+    </div>
+
     </USidebar>
 
     <div class="flex-1 flex flex-col">
@@ -26,26 +29,41 @@
         />
         <Placeholder class="size-full" />
 
-        <article class="prose dark:prose-invert">
-          <div v-html="html"></div>
-        </article>
+        <DeveloperLogMarkdown :markdownContent="markdownContent" />
+
       </div>
     </div>
   </div>
 </template>
 
 
-
 <script setup lang="ts">
 const open = ref(true);
 
-import MarkdownIt from "markdown-it";
-const md = new MarkdownIt();
-const markdownContent = ref(`# 这是一个标题
-这是一些文本内容。
-- 列表项1
-- 列表项2
-`);
-const html = computed(() => md.render(markdownContent.value));
+import type { TabsItem } from '@nuxt/ui'
+const developerLogList = ref<TabsItem[]>([
+  {
+    id: 1,
+    name: "1.1版本",
+    filePath: "/developerLog/version1_1.md",
+  },
+  {
+    id: 2,
+    name: "1.2版本",
+    filePath: "/developerLog/version1_2.md",
+  },
+])
+const activeIndex = ref(0)
+
+const markdownContent = ref('加载中...')
+
+watch(activeIndex, async() => {
+  markdownContent.value = await $fetch(developerLogList.value[activeIndex.value]?.filePath||"/developerLog/version1_1.md")
+})
+
+onMounted(async()=>{
+  markdownContent.value = await $fetch(developerLogList.value[0]?.filePath||"/developerLog/version1_1.md")
+})
+
 </script>
 
