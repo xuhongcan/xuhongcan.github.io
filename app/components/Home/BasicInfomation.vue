@@ -6,7 +6,7 @@
   <div class="flex flex-col items-center lg:flex-row lg:justify-around">
     <div
       id="trigger-1-img"
-      class="w-[60vw] lg:w-[28vw] rounded-3xl overflow-hidden lg:m-[80px]"
+      class="w-[60vw] lg:w-[28vw] rounded-3xl overflow-hidden lg:m-20"
     >
       <img src="/img/img-xuhongcan.jpg" alt="个人图片" />
     </div>

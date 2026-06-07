@@ -25,19 +25,15 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 const route = useRoute();
 
 const items = computed<NavigationMenuItem[]>(() => [
-  
   {
-    label: "拍摄",
-    to: "/shoot",
+    label: "简历",
+    to: "/resume",
   },
   {
-    label: "演员",
-    to: "/actor",
+    label: "视频",
+    to: "/video",
   },{
-    label: "剪辑",
-    to: "/filmEdit",
-  },{
-    label: "开发者日志",
+    label: "日志",
     to: "/developerLog",
   },
 ]);
