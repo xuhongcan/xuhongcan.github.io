@@ -21,7 +21,7 @@
           >
         </div>
         <UButton
-          class="self-end my-7"
+          class="self-end my-7 bg-gray-500"
           icon="i-lucide-panel-left"
           color="neutral"
           variant="ghost"
@@ -33,13 +33,6 @@
 
     <div class="flex-1 flex flex-col">
       <div class="flex-1 p-4">
-        <UButton
-          icon="i-lucide-panel-left"
-          color="neutral"
-          variant="ghost"
-          aria-label="Toggle sidebar"
-          @click="open = !open"
-        />
         <Placeholder class="size-full" />
         <div class="w-full flex">
           <DeveloperLogMarkdown
@@ -52,6 +45,7 @@
           color="neutral"
           variant="ghost"
           aria-label="Toggle sidebar"
+          class="bg-gray-500"
           @click="open = !open"
         />
       </div>
