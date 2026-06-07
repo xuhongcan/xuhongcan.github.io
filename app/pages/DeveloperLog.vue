@@ -28,8 +28,16 @@
           @click="open = !open"
         />
         <Placeholder class="size-full" />
-
-        <DeveloperLogMarkdown :markdownContent="markdownContent" />
+        <div class="w-full flex">
+          <DeveloperLogMarkdown :markdownContent="markdownContent" class="lg:ml-[10vw]" />
+        </div>
+        <UButton
+          icon="i-lucide-panel-left"
+          color="neutral"
+          variant="ghost"
+          aria-label="Toggle sidebar"
+          @click="open = !open"
+        />
 
       </div>
     </div>

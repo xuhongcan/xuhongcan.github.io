@@ -3,13 +3,13 @@
     <template #title>
       <NuxtLink
         to="/"
-        class="w-10 h-10 flex items-center justify-center rounded-lg transition text-white"
+        class="w-10 h-10 flex items-center justify-center rounded-lg transition"
       >
         ☰
       </NuxtLink>
     </template>
     
-    许宏灿
+    <div class="select-none">许宏灿</div>
 
     <template #right>
       <UNavigationMenu :items="items" />
