@@ -10,12 +10,25 @@
         body: 'py-0',
       }"
     >
-    <div class="mt-25">
-      <div v-for="(item, index) in developerLogList" :key="index">
-        <UButton @click="activeIndex = index" size="xl" color="neutral" class="w-full">{{ item.name }}</UButton>
+      <div class="mt-25 flex flex-col">
+        <div v-for="(item, index) in developerLogList" :key="index">
+          <UButton
+            @click="activeIndex = index"
+            size="xl"
+            color="neutral"
+            class="w-full"
+            >{{ item.name }}</UButton
+          >
+        </div>
+        <UButton
+          class="self-end my-7"
+          icon="i-lucide-panel-left"
+          color="neutral"
+          variant="ghost"
+          aria-label="Toggle sidebar"
+          @click="open = !open"
+        />
       </div>
-    </div>
-
     </USidebar>
 
     <div class="flex-1 flex flex-col">
@@ -29,7 +42,10 @@
         />
         <Placeholder class="size-full" />
         <div class="w-full flex">
-          <DeveloperLogMarkdown :markdownContent="markdownContent" class="lg:ml-[10vw]" />
+          <DeveloperLogMarkdown
+            :markdownContent="markdownContent"
+            class="lg:ml-[10vw]"
+          />
         </div>
         <UButton
           icon="i-lucide-panel-left"
@@ -38,7 +54,6 @@
           aria-label="Toggle sidebar"
           @click="open = !open"
         />
-
       </div>
     </div>
   </div>
@@ -48,7 +63,7 @@
 <script setup lang="ts">
 const open = ref(true);
 
-import type { TabsItem } from '@nuxt/ui'
+import type { TabsItem } from "@nuxt/ui";
 const developerLogList = ref<TabsItem[]>([
   {
     id: 1,
@@ -60,18 +75,22 @@ const developerLogList = ref<TabsItem[]>([
     name: "1.2版本",
     filePath: "/developerLog/version1_2.md",
   },
-])
-const activeIndex = ref(0)
+]);
+const activeIndex = ref(0);
 
-const markdownContent = ref('加载中...')
+const markdownContent = ref("加载中...");
 
-watch(activeIndex, async() => {
-  markdownContent.value = await $fetch(developerLogList.value[activeIndex.value]?.filePath||"/developerLog/version1_1.md")
-})
+watch(activeIndex, async () => {
+  markdownContent.value = await $fetch(
+    developerLogList.value[activeIndex.value]?.filePath ||
+      "/developerLog/version1_1.md"
+  );
+});
 
-onMounted(async()=>{
-  markdownContent.value = await $fetch(developerLogList.value[0]?.filePath||"/developerLog/version1_1.md")
-})
-
+onMounted(async () => {
+  markdownContent.value = await $fetch(
+    developerLogList.value[0]?.filePath || "/developerLog/version1_1.md"
+  );
+});
 </script>
 
