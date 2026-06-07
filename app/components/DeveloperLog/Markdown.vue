@@ -5,7 +5,10 @@
 </template>
 
 <script setup lang="ts">
-const { markdownContent } = defineProps(['markdownContent'])
+interface Props {
+  markdownContent: string;
+}
+const {markdownContent} = defineProps<Props>();
 
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();

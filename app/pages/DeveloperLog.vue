@@ -22,18 +22,16 @@
         </div>
         <UButton
           class="self-end my-7 bg-gray-500"
-          icon="i-lucide-panel-left"
           color="neutral"
           variant="ghost"
           aria-label="Toggle sidebar"
           @click="open = !open"
-        />
+        >折叠</UButton>
       </div>
     </USidebar>
 
     <div class="flex-1 flex flex-col">
       <div class="flex-1 p-4">
-        <Placeholder class="size-full" />
         <div class="w-full flex">
           <DeveloperLogMarkdown
             :markdownContent="markdownContent"
@@ -41,13 +39,12 @@
           />
         </div>
         <UButton
-          icon="i-lucide-panel-left"
           color="neutral"
           variant="ghost"
           aria-label="Toggle sidebar"
           class="bg-gray-500"
           @click="open = !open"
-        />
+        >折叠</UButton>
       </div>
     </div>
   </div>
@@ -57,8 +54,12 @@
 <script setup lang="ts">
 const open = ref(true);
 
-import type { TabsItem } from "@nuxt/ui";
-const developerLogList = ref<TabsItem[]>([
+interface DeveloperLogList {
+  id: number;
+  name: string;
+  filePath: string;
+}
+const developerLogList = ref<DeveloperLogList[]>([
   {
     id: 1,
     name: "1.1版本",
@@ -66,23 +67,23 @@ const developerLogList = ref<TabsItem[]>([
   },
   {
     id: 2,
-    name: "1.2版本",
-    filePath: "/developerLog/version1_2.md",
-  },
+    name: "2.1和2.2版本",
+    filePath: "/developerLog/version2_1.md",
+  }
 ]);
 const activeIndex = ref(0);
 
 const markdownContent = ref("加载中...");
 
 watch(activeIndex, async () => {
-  markdownContent.value = await $fetch(
+  markdownContent.value = await $fetch<string>(
     developerLogList.value[activeIndex.value]?.filePath ||
       "/developerLog/version1_1.md"
   );
 });
 
 onMounted(async () => {
-  markdownContent.value = await $fetch(
+  markdownContent.value = await $fetch<string>(
     developerLogList.value[0]?.filePath || "/developerLog/version1_1.md"
   );
 });

@@ -21,7 +21,7 @@
     <!-- 4、以上从开始到完成第一个实例，大概花了3小时————只记得我45分钟的番茄钟，用了大概4个 -->
 
     <div
-      class="bg-[url(/img/img-bg.jpg)] bg-cover bg-fixed min-h-[100vh] max-w-[100vw] flex flex-col items-center"
+      class="bg-[url(/img/img-bg.jpg)] bg-cover bg-fixed min-h-screen max-w-[100vw] flex flex-col items-center"
     >
 
       <div class="h-[42vh] w-full"></div>

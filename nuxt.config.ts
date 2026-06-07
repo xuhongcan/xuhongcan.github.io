@@ -4,4 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ['@nuxt/ui'],
   css: ['~/assets/css/main.css'],
+
+  // 非常重要的一组代码：
+  ui: {
+    fonts: false
+  }
 })
