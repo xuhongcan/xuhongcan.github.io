@@ -8,5 +8,13 @@ export default defineNuxtConfig({
   // 非常重要的一组代码：
   ui: {
     fonts: false
+  },
+  vite: {
+    optimizeDeps: {
+      include: [
+        'gsap',
+        'gsap/ScrollTrigger'
+      ]
+    }
   }
 })
