@@ -62,13 +62,16 @@ interface DeveloperLogList {
 const developerLogList = ref<DeveloperLogList[]>([
   {
     id: 1,
+    name: "3.1版本",
+    filePath: "/developerLog/version3_1.md",
+  },{
+    id: 3,
+    name: "2.1本",
+    filePath: "/developerLog/version2_1.md",
+  },{
+    id: 2,
     name: "1.1版本",
     filePath: "/developerLog/version1_1.md",
-  },
-  {
-    id: 2,
-    name: "2.1和2.2版本",
-    filePath: "/developerLog/version2_1.md",
   }
 ]);
 const activeIndex = ref(0);
