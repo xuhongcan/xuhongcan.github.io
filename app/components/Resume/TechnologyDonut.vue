@@ -11,11 +11,11 @@ let chartInstance = null
 
 // 数据和颜色配置（和你示例的颜色、比例对应）
 const data = [
-  { name: 'Vue3', value: 45, itemStyle: { color: '#0055AA' } },
-  { name: 'Nuxt', value: 15, itemStyle: { color: '#008833' } },
-  { name: 'UniApp/原生微信小程序', value: 20, itemStyle: { color: '#C85211' } },
-  { name: 'Electron', value: 15, itemStyle: { color: '#E6B800' } },
-  { name: 'React', value: 5, itemStyle: { color: '#04a49f' } },
+  { name: 'Vue3', value: 95, itemStyle: { color: '#0055AA' } },
+  { name: 'Nuxt', value: 75, itemStyle: { color: '#008833' } },
+  { name: 'UniApp/原生微信小程序', value: 75, itemStyle: { color: '#C85211' } },
+  { name: 'Electron', value: 80, itemStyle: { color: '#E6B800' } },
+  { name: 'React', value: 20, itemStyle: { color: '#04a49f' } },
 ]
 
 onMounted(() => {

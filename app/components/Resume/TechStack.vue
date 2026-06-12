@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center mb-[10vh] md:mb-[20vh]">
+  <div class="flex justify-center">
     <div v-html="html" class="prose dark:prose-invert w-[80vw] md:min-w-[60vw]"></div>
   </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex justify-center mt-[6vh] text-3xl">视频</div>
+  <div class="flex justify-center pt-[6vh] text-3xl">视频</div>
 </template>
 
 <script setup lang="ts">

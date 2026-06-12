@@ -6,12 +6,14 @@
   <div class="flex flex-col items-center lg:flex-row lg:justify-around">
     <div
       id="trigger-1-img"
-      class="w-[60vw] lg:w-[28vw] rounded-3xl overflow-hidden lg:m-20"
+      class="w-[60vw] lg:w-[28vw] lg:mr-[12vw] rounded-3xl overflow-hidden lg:m-20"
     >
       <img src="/img/img-xuhongcan.jpg" alt="个人图片" />
     </div>
+
     <div
-      class="text-white font-bold flex flex-col items-center w-[80vw] lg:w-[28vw] lg:m-[80px]"
+      id="trigger-1-text"
+      class="text-white font-bold flex flex-col items-center w-[60vw] lg:w-[20vw]"
     >
       <div class="text-2xl w-full flex justify-around">
         <div>许宏灿</div>
@@ -33,12 +35,22 @@ onMounted(() => {
     gsap.defaults({ ease: "none", duration: 2 });
 
     const tl = gsap.timeline();
-    tl.from("#trigger-1-img", {  opacity: 0, scale:0.5 }).to("#trigger-1-img", {  opacity: 1, scale:1.5 }).to("#trigger-1-img", {  opacity: 1, scale:1 })
-
-
+    tl.from("#trigger-1-img", {  opacity: 0, scale:0.5 }).to("#trigger-1-img", {  opacity: 0.95, scale:1.5 }).to("#trigger-1-img", {  opacity: 1, scale:1 })
     ScrollTrigger.create({
       animation: tl,
       trigger: "#trigger-1-img",
+      start: "center center",
+      end: "+=1400",
+      scrub: true,
+      pin: true,
+    });
+
+
+    const tl2 = gsap.timeline();
+    tl.to("#trigger-1-text", {  opacity: 1, scale:1 })
+    ScrollTrigger.create({
+      animation: tl2,
+      trigger: "#trigger-1-text",
       start: "center center",
       end: "+=1400",
       scrub: true,

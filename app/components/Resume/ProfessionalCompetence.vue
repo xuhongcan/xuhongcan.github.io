@@ -41,7 +41,8 @@ onMounted(() => {
       },
       splitArea: {
         areaStyle: {
-          color: ['#fff', '#fff', '#fff', '#fff']
+          color: ['#e6b800', '#008833', '#0055aa', '#c85211']
+          // color: ['#fff', '#fff', '#fff', '#fff']
         }
       },
       axisLine: {
